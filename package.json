@@ -1,0 +1,14 @@
+{
+  "name": "lacserver",
+  "type": "module",
+  "dependencies": {
+    "getmac": "^5.0.0",
+    "crypto": "latest",
+    "express": "^4.18.2",
+    "uuid": "^9.0.0",
+    "@vercel/node": "^2.15.3",
+    "axios": "^1.6.7",
+    "cors": "^2.8.5",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
