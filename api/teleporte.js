@@ -10,7 +10,7 @@ export default function handler(req, res) {
 
     const random = Math.floor(Math.random() * maxNum) + 1;
     res.setHeader('Content-Type', 'text/plain');
-    res.status(200).send(`teleporte${random}`);
+    res.status(200).send(`(private)<size=-100>teleporte${random}</size><i>Aguarde...</i>`);
   } catch (err) {
     res.status(500).send('Erro interno no servidor.');
   }
