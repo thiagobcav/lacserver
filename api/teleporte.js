@@ -1,18 +1,17 @@
-const express = require('express');
-const app = express();
-const port = 3000;
+export default function handler(req, res) {
+  try {
+    const { max } = req.query;
+    const maxNum = parseInt(max, 10);
 
-app.get('/teleporte', (req, res) => {
-  const max = parseInt(req.query.max, 10);
+    if (!maxNum || isNaN(maxNum) || maxNum <= 0) {
+      res.status(400).send('Parâmetro "max" inválido. Use ?max=10');
+      return;
+    }
 
-  if (!max || isNaN(max) || max <= 0) {
-    return res.status(400).send('Parâmetro "max" inválido. Use ?max=10 por exemplo.');
+    const random = Math.floor(Math.random() * maxNum) + 1;
+    res.setHeader('Content-Type', 'text/plain');
+    res.status(200).send(`teleporte${random}`);
+  } catch (err) {
+    res.status(500).send('Erro interno no servidor.');
   }
-
-  const randomNumber = Math.floor(Math.random() * max) + 1;
-  res.send(`teleporte${randomNumber}`);
-});
-
-app.listen(port, () => {
-  console.log(`API rodando em http://localhost:${port}`);
-});
+}
