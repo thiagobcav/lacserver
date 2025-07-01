@@ -1,0 +1,15 @@
+// comando para chamar a api
+
+mode{enter}
+webrequest{https://laconline.vercel.app/api/teleporte?max=4}
+cooldown{5}
+
+
+
+// comando para fazer o teleporte
+
+mode{loop}
+ifcondition{chat=(private)<size=-100>teleporte1</size><i>Aguarde!</i>}
+chat{(private)<i>Teleportando...</i>}
+teleport{0,0,0}
+cooldown{1}
